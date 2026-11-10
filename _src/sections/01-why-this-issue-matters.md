@@ -1,5 +1,6 @@
 ---
 title: Why This Issue Matters
+tags: section
 order: 1
 image: img/training.jpeg
 image_alt: AI Training

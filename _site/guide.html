@@ -12,6 +12,7 @@
      <meta http-equiv="X-UA-Compatible" 
            content="ie=edge">
          <link rel="stylesheet" href="css/css.css">
+             <script type="module" src="js/is-land.js"></script>
              
              
      <title></title>
@@ -22,89 +23,35 @@
 
 <main>
     <h1>My Tech Issue Guide</h1>
-    
-    <nav aria-label="Guide sections">
-        <ul>
-            
-            <li><a href="#why-this-issue-matters">Why This Issue Matters</a></li>
-            
-            <li><a href="#where-to-start">Where to Start</a></li>
-            
-            <li><a href="#general-ai-copyright-information">General AI Copyright Information</a></li>
-            
-            <li><a href="#ai-should-not-be-able-to-copyrighted">AI SHOULD NOT be able to Copyrighted</a></li>
-            
-            <li><a href="#ai-should-be-able-to-copyrighted">AI SHOULD BE able to Copyrighted</a></li>
-            
-        </ul>
-    </nav>
-    
-    
-    <section id="why-this-issue-matters">
-        <h2>Why This Issue Matters</h2>
+    <is-land on:visible>
         
-        <figure>
-            <img src="img/training.jpeg" alt="AI Training">
+        <div id="counters">
+            <div v-scope="Counter({ initialCount: 5 })">
+                <p>Count: <span v-text="count"></span></p>
+                <button @click="increment">+</button>
+            </div>
+            <div v-scope="Counter({ initialCount: 20 })">
+                <p>Count: <span v-text="count"></span></p>
+                <button @click="increment">+</button>
+            </div>
+        </div>
+        
+        <template data-island>
+            <script type="module">
+                import { createApp } from './js/petite-vue.js'
                 
-        </figure>
-        
-        <p>The issue of AI and copyright is important because it affects the rights of creators, the future of creative industries, and the development of technology. Finding a balance between protecting original work and allowing AI to advance is important because it will shape how society approaches creativity, ownership, and innovation in the future
-<a href="https://www.brookings.edu/articles/copyright-alone-cannot-protect-the-future-of-creative-work/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
-    </section>
-    
-    <section id="where-to-start">
-        <h2>Where to Start</h2>
-        
-        <figure>
-            <img src="img/question.png" alt="Question Mark">
+                function Counter(props) {
+                return {
+                count: props.initialCount,
+                increment() { this.count++ }
+                }
+                }
                 
-        </figure>
+                createApp({ Counter }).mount('#counters')
+            </script>
+        </template>
         
-        <p>Your writing goes here, in markdown.
-<a href="https://www.wipo.int/web-publications/learning-machines-an-introduction-to-ai-and-ip-for-small-and-medium-sized-enterprises/en/creating-and-inventing-with-ai.html" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
-    </section>
-    
-    <section id="general-ai-copyright-information">
-        <h2>General AI Copyright Information</h2>
-        
-        <figure>
-            <img src="img/copyright.jpg" alt="Copyright Stamp">
-                
-        </figure>
-        
-        <p>Your writing goes here, in markdown.
-<a href="https://www.congress.gov/crs-product/LSB10922" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
-    </section>
-    
-    <section id="ai-should-not-be-able-to-copyrighted">
-        <h2>AI SHOULD NOT be able to Copyrighted</h2>
-        
-        <figure>
-            <img src="img/deny.png" alt="Deny Stamp">
-                
-        </figure>
-        
-        <p>Your writing goes here, in markdown.
-<a href="https://sites.usc.edu/iptls/2025/02/04/ai-copyright-and-the-law-the-ongoing-battle-over-intellectual-property-rights/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
-    </section>
-    
-    <section id="ai-should-be-able-to-copyrighted">
-        <h2>AI SHOULD BE able to Copyrighted</h2>
-        
-        <figure>
-            <img src="img/approve.png" alt="Approve Stamp">
-                
-        </figure>
-        
-        <p>Your writing goes here, in markdown.
-<a href="https://www.brookings.edu/articles/ai-and-the-visual-arts-the-case-for-copyright-protection/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
-    </section>
-    
+    </is-land>
 </main>
     
 </body>

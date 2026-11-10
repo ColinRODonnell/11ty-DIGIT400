@@ -1,3 +1,4 @@
+
 ---
 title: My Tech Issue Guide
 layout: base.njk
@@ -8,10 +9,42 @@ permalink: guide.html
 <main>
     <h1>{{ title }}</h1>
     
+    <is-land on:visible>
+        <div id="counters">
+            <div v-scope="Counter({ initialCount: 5 })">
+                <p>Count: <span v-text="count"></span></p>
+                <button @click="increment">+</button>
+            </div>
+            <div v-scope="Counter({ initialCount: 20 })">
+                <p>Count: <span v-text="count"></span></p>
+                <button @click="increment">+</button>
+            </div>
+        </div>
+        
+        <template data-island>
+            <script type="module">
+                import { createApp } from './js/petite-vue.js'
+                
+                function Counter(props) {
+                return {
+                count: props.initialCount,
+                increment() { this.count++ }
+                }
+                }
+                
+                createApp({ Counter }).mount('#counters')
+            </script>
+        </template>
+    </is-land>
+    
     <nav aria-label="Guide sections">
         <ul>
             {% for section in sections %}
-            <li><a href="#{{ section.data.title | slugify }}">{{ section.data.title }}</a></li>
+            <li>
+                <a href="#{{ section.data.title | slugify }}">
+                    {{ section.data.title }}
+                </a>
+            </li>
             {% endfor %}
         </ul>
     </nav>
@@ -19,6 +52,7 @@ permalink: guide.html
     {% for section in sections %}
     <section id="{{ section.data.title | slugify }}">
         <h2>{{ section.data.title }}</h2>
+        
         {% if section.data.image %}
         <figure>
             <img src="{{ section.data.image }}" alt="{{ section.data.image_alt }}">
@@ -27,6 +61,7 @@ permalink: guide.html
                 {% endif %}
         </figure>
         {% endif %}
+        
         {{ section.templateContent | safe }}
     </section>
     {% endfor %}
