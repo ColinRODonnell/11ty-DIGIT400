@@ -29,5 +29,34 @@
 <h1>Welcome to 11ty!!!</h1>
     
     
+    <footer>
+        <strong>Page last updated:</strong>
+        
+        
+        <em>not yet committed</em>
+        
+        
+        &middot;
+        
+        <strong>Site last built:</strong>
+        <time class="fmt-date" datetime=""></time>
+        
+        <is-land on:visible>
+            <template data-island>
+                <script type="module">
+                    const fmt = new Intl.DateTimeFormat(undefined, {
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    });
+
+                    document.querySelectorAll("time.fmt-date").forEach((el) => {
+                        el.textContent = fmt.format(
+                            new Date(el.getAttribute("datetime"))
+                        );
+                    });
+                </script>
+            </template>
+        </is-land>
+    </footer>
 </body>
 </html>
