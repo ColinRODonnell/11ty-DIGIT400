@@ -67,6 +67,12 @@
             <li><a href="/guide.html">AI Copyright Tech Issue Guide</a></li>
             
             <li>
+                <a href="#gallery">
+                    Gallery
+                </a>
+            </li>
+            
+            <li>
                 <a href="#why-this-issue-matters">
                     Why This Issue Matters
                 </a>
@@ -99,6 +105,45 @@
         </ul>
     </nav>
     
+    
+    <section id="gallery">
+        <h2>Gallery</h2>
+        
+        
+        
+        <is-land on:visible>
+<div id="gallery" v-scope="{ active: 'all' }">
+  <div class="filters">
+    <button @click="active = 'all'" :class="{ on: active === 'all' }" :aria-pressed="String(a
+### ctive === 'all')">All</button>
+    <button @click="active = 'general'" :class="{ on: active === 'general' }" :aria-pressed="String(active === 'general')">General AI Copyright Info</button>
+    <button @click="active = 'should'" :class="{ on: active === 'should' }" :aria-pressed="String(active === 'should')">AI Should Copyright</button>
+    <button @click="active = 'shouldnot'" :class="{ on: active === 'shouldnot' }" :aria-pressed="String(active === 'shouldnot')">AI Shouldn't Copyright</button>
+  </div>
+  <section class="topic" v-show="active === 'all' || active === 'general'">
+    <h3>General AI Copyright Info</h3>
+    <img src="img/general/ai-face.jpg" alt="ai face">
+    <img src="img/general/brain.png" alt="brain">
+  </section>
+  <section class="topic" v-show="active === 'all' || active === 'should'">
+    <h3>AI Should be able to Copyright</h3>
+    <img src="img/approve-ai/city.jpg" alt="city">
+    <img src="img/approve-ai/learn.png" alt="learn">
+  </section>
+  <section class="topic" v-show="active === 'all' || active === 'shouldnot'">
+    <h3>AI Should not be able to Copyright</h3>
+    <img src="img/deny-ai/bad.png" alt="bad">
+    <img src="img/deny-ai/bubble.jpg" alt="bubble">
+  </section>
+</div>
+  <template data-island>
+    <script type="module">
+      import { createApp } from './js/petite-vue.js'
+      createApp().mount('#gallery')
+    </script>
+  </template>
+</is-land>
+    </section>
     
     <section id="why-this-issue-matters">
         <h2>Why This Issue Matters</h2>
@@ -140,8 +185,16 @@
         </figure>
         
         
-        <p>Your writing goes here, in markdown.
-<a href="https://www.congress.gov/crs-product/LSB10922" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
+        <p>Your writing goes here, in markdown.</p>
+<p>For a more general understanding of how copyright law applies to artificial intelligence, the Congress.gov offers
+<a href="https://www.congress.gov/crs-product/LSB10922" target="_blank">a useful legal guide surrounding AI-generated works</a>
+This text helps explain the problems AI creates for existing copyright laws and that these issues are still being discussed.
+</p>
+<p>For a deeper look at how artificial intelligence affects copyright laws,
+<a href="https://doi.org/10.4337/9781035334414" target="blank">this free book shows how copyright protections apply to AI training data</a>.
+It also discusses how governments are adapting laws to address AI.
+</p>
+</p>
 
     </section>
     
@@ -155,9 +208,14 @@
         </figure>
         
         
-        <p>Your writing goes here, in markdown.
-<a href="https://sites.usc.edu/iptls/2025/02/04/ai-copyright-and-the-law-the-ongoing-battle-over-intellectual-property-rights/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
+        <p>Your writing goes here, in markdown.</p>
+<p>For more information on why AI-generated works should not receive copyright protection,
+<a href="https://sites.usc.edu/iptls/2025/02/04/ai-copyright-and-the-law-the-ongoing-battle-over-intellectual-property-rights/" target="_blank">the USC college website writes about AI and intellectual property rights</a>
+  and explains why traditional copyright protections may not be enough to address the challenges created by AI.
+</p>
+<p>For a real-world example of an AI company facing consequences for using copyrighted material without permission,
+<a href="https://sites.usc.edu/iptls/2025/02/04/ai-copyright-and-the-law-the-ongoing-battle-over-intellectual-property-rights/" target="_blank">this article covers Anthropic's $1.5 billion settlement over illegally downloading copyrighted books to train its AI chatbot</a>.
+This case highlights the importance of protecting authors' work.</p>
     </section>
     
     <section id="ai-should-be-able-to-copyrighted">
@@ -170,9 +228,15 @@
         </figure>
         
         
-        <p>Your writing goes here, in markdown.
-<a href="https://www.brookings.edu/articles/ai-and-the-visual-arts-the-case-for-copyright-protection/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
+        <p>Your writing goes here, in markdown.</p>
+<p>For more information on why AI-generated artwork should receive copyright protection,
+<a href="https://www.brookings.edu/articles/ai-and-the-visual-arts-the-case-for-copyright-protection/" target="_blank">this article argues the case for extending copyright protections to AI-assisted visual art</a>.
+It discusses how copyright protection could help encourage artistic innovation while mentioning some drawbacks.
+</p>
+<p>For more information on why copyright law may not be the best solution to AI-related issues,
+<a href="https://www.harvardmagazine.com/five-questions/harvard-copyright-law-artificial-intelligence" target="_blank">this interview with a Harvard law professor explains how fair use could allow AI innovation while protecting existing creative works</a>.
+It suggests that updating how AI companies compensate creators may be a better solution.
+</p>
     </section>
     
 </main>

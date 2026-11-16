@@ -13,3 +13,12 @@ p {
     font-size: 18px;
     line-height: 1.5;
 }
+
+.filters button.on {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.topic img {
+  max-width: 14rem;
+  margin: 0.5rem;
+}

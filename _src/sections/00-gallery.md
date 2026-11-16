@@ -7,7 +7,8 @@ order: 0
 
 <div id="gallery" v-scope="{ active: 'all' }">
   <div class="filters">
-    <button @click="active = 'all'" :class="{ on: active === 'all' }" :aria-pressed="String(active === 'all')">All</button>
+    <button @click="active = 'all'" :class="{ on: active === 'all' }" :aria-pressed="String(a
+### ctive === 'all')">All</button>
     <button @click="active = 'general'" :class="{ on: active === 'general' }" :aria-pressed="String(active === 'general')">General AI Copyright Info</button>
     <button @click="active = 'should'" :class="{ on: active === 'should' }" :aria-pressed="String(active === 'should')">AI Should Copyright</button>
     <button @click="active = 'shouldnot'" :class="{ on: active === 'shouldnot' }" :aria-pressed="String(active === 'shouldnot')">AI Shouldn't Copyright</button>

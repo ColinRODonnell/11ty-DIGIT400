@@ -1,12 +1,42 @@
-module.exports = function (eleventyConfig){
-     eleventyConfig.addPassthroughCopy("_src/_includes/");
-     eleventyConfig.addPassthroughCopy("./_src/css/");
-     eleventyConfig.addPassthroughCopy("./_src/img/");
-     
-     return{
-         dir: {
-            input: "_src",
-            output: "_site"
-        },
-    };
+const esbuild = require("esbuild");
+// 2026-10-27 ebb: I'm using esbuild to handle my three.js integration with 11ty.
+// This is building the staticized version of three.js for my published site,
+// and plays nicely with 11ty.
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("_src/_includes/");
+  eleventyConfig.addPassthroughCopy("./_src/css/");
+  // eleventyConfig.addPassthroughCopy("./_src/main.js");
+  // ebb: Replaced the "passthrough" of main.js with this esbuild step for three.js:
+  eleventyConfig.on("eleventy.before", async () => {
+    await esbuild.build({
+      entryPoints: ["_src/threeScene.js"],
+      bundle: true,
+      minify: true,
+      format: "esm",
+      outdir: "_site/js",
+      sourcemap: true,
+    });
+  });
+  eleventyConfig.addPassthroughCopy("./_src/img/");
+  eleventyConfig.addPassthroughCopy("./_src/threed-images/");
+
+  /* This is for petite-vue and islands */
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@11ty/is-land/is-land.js": "js/is-land.js",
+    "node_modules/petite-vue/dist/petite-vue.es.js": "js/petite-vue.js",
+  });
+
+  // ebb: Re-run the build when Three's main.js changes during --serve
+  eleventyConfig.addWatchTarget("./_src/threeScene.js");
+  // ebb: JUST FOR THIS MODEL REPO (not for yours:
+  // I need to ignore this from actually buildin:)
+  eleventyConfig.ignores.add("_src/sections-template/**");
+
+  return {
+    dir: {
+      input: "_src",
+      output: "_site",
+    },
+  };
 };
