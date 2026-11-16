@@ -3,6 +3,7 @@ const { execFileSync } = require("node:child_process");
 module.exports = {
   gitLastCommit: (data) => {
     const file = data.page?.inputPath;
+    console.log("PAGE PATH:", file);
     if (!file) return null;
 
     try {
