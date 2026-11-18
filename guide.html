@@ -33,38 +33,11 @@
 <main>
     <h1>My Tech Issue Guide</h1>
     
-    <is-land on:visible>
-        <div id="counters">
-            <div v-scope="Counter({ initialCount: 5 })">
-                <p>Count: <span v-text="count"></span></p>
-                <button @click="increment">+</button>
-            </div>
-            <div v-scope="Counter({ initialCount: 20 })">
-                <p>Count: <span v-text="count"></span></p>
-                <button @click="increment">+</button>
-            </div>
-        </div>
-        
-        <template data-island>
-            <script type="module">
-                import { createApp } from './js/petite-vue.js'
-                
-                function Counter(props) {
-                return {
-                count: props.initialCount,
-                increment() { this.count++ }
-                }
-                }
-                
-                createApp({ Counter }).mount('#counters')
-            </script>
-        </template>
-    </is-land>
+    
     
     <nav aria-label="Guide sections">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/guide.html">AI Copyright Tech Issue Guide</a></li>
+            
             
             <li>
                 <a href="#gallery">
@@ -75,12 +48,6 @@
             <li>
                 <a href="#why-this-issue-matters">
                     Why This Issue Matters
-                </a>
-            </li>
-            
-            <li>
-                <a href="#where-to-start">
-                    Where to Start
                 </a>
             </li>
             
@@ -150,29 +117,31 @@
         
         
         <figure>
-            <img src="img/training.jpeg" alt="AI Training">
+            <img src="img/face.jpg" alt="AI Training">
                 
         </figure>
         
         
-        <p>The issue of AI and copyright is important because it affects the rights of creators, the future of creative industries, and the development of technology. Finding a balance between protecting original work and allowing AI to advance is important because it will shape how society approaches creativity, ownership, and innovation in the future
-<a href="https://www.brookings.edu/articles/copyright-alone-cannot-protect-the-future-of-creative-work/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
-    </section>
-    
-    <section id="where-to-start">
-        <h2>Where to Start</h2>
-        
-        
-        <figure>
-            <img src="img/question.png" alt="Question Mark">
-                
+        <p>If you use artificial intelligence to create an image, design, or illustration, do you own it? AI-generated content has become way more common across professional industries. If you're an artist, designer, content creator, or business owner, or even a student, these changes in AI copyright law could affect how you protect your work.</p>
+<div class="art-comparison">
+<figure class="art-example">
+        <img src="img/drawing.jfif" alt="An artist creating a digital illustration using a drawing tablet">
+        <figcaption>
+            <h3>Human-Created Art</h3>
+            <p>Created through an artist's individual creative decisions and techniques.</p>
+        </figcaption>
         </figure>
-        
-        
-        <p>Your writing goes here, in markdown.
-<a href="https://www.wipo.int/web-publications/learning-machines-an-introduction-to-ai-and-ip-for-small-and-medium-sized-enterprises/en/creating-and-inventing-with-ai.html" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a></p>
-
+<figure class="art-example">
+<p><img src="img/ai.jfif" alt="An example of AI-generated digital artwork">
+<figcaption>
+<h3>AI-Generated Art</h3>
+<p>Created using artificial intelligence based on a text prompt or other input.</p>
+</figcaption></p>
+<figure>
+</div>
+<h3 style="color: black;">Should these two works receive the same copyright protection?</h3>
+The issue of AI and copyright is important because it affects the rights of creators and the development of technology. There needs to be a balance between protecting original work and allowing AI to advance. 
+<a href="https://www.brookings.edu/articles/copyright-alone-cannot-protect-the-future-of-creative-work/" target="_blank">Copyright Alone Cannot Protect the Future of Creative Work</a>
     </section>
     
     <section id="general-ai-copyright-information">
@@ -243,6 +212,11 @@ It suggests that updating how AI companies compensate creators may be a better s
 
     
     <footer>
+        <p>
+            <a href="https://www.zotero.org/groups/6655821/copyright_and_ai-generated_media" target="blank">
+                Link to Zotero Library
+            </a>
+        </p>
         <strong>Page last updated:</strong>
         
         
@@ -252,7 +226,7 @@ It suggests that updating how AI companies compensate creators may be a better s
         &middot;
         
         <strong>Site last built:</strong>
-        <time class="fmt-date" datetime="2026-11-16T21:07:01.076Z">2026-11-16T21:07:01.076Z</time>
+        <time class="fmt-date" datetime="2026-11-18T01:25:32.048Z">2026-11-18T01:25:32.048Z</time>
         
         <is-land on:visible>
             <template data-island>
