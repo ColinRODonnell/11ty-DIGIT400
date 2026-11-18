@@ -9,38 +9,11 @@ permalink: guide.html
 <main>
     <h1>{{ title }}</h1>
     
-    <is-land on:visible>
-        <div id="counters">
-            <div v-scope="Counter({ initialCount: 5 })">
-                <p>Count: <span v-text="count"></span></p>
-                <button @click="increment">+</button>
-            </div>
-            <div v-scope="Counter({ initialCount: 20 })">
-                <p>Count: <span v-text="count"></span></p>
-                <button @click="increment">+</button>
-            </div>
-        </div>
-        
-        <template data-island>
-            <script type="module">
-                import { createApp } from './js/petite-vue.js'
-                
-                function Counter(props) {
-                return {
-                count: props.initialCount,
-                increment() { this.count++ }
-                }
-                }
-                
-                createApp({ Counter }).mount('#counters')
-            </script>
-        </template>
-    </is-land>
+    
     
     <nav aria-label="Guide sections">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/guide.html">AI Copyright Tech Issue Guide</a></li>
+            
             {% for section in sections %}
             <li>
                 <a href="#{{ section.data.title | slugify }}">
